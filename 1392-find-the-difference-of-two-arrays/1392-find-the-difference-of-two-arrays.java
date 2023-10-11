@@ -15,12 +15,17 @@ class Solution {
         for(int i : st2){
             mp.put(i, mp.getOrDefault(i, 0) + 1);
         }
-        for(int j : nums1){
-            if(mp.get(j) != 1) st1.remove(j);
+        List<List<Integer>> answer = new ArrayList<>();
+        List<Integer> ans = new ArrayList<>();
+        for(int j : st1){
+            if(mp.get(j) == 1) ans.add(j);
         }
-        for(int j : nums2){
-            if(mp.get(j) != 1) st2.remove(j);
+        answer.add(ans);
+        List<Integer> ns = new ArrayList<>();
+        for(int j : st2){
+            if(mp.get(j) == 1) ns.add(j);
         }
-        return Arrays.asList(new ArrayList<>(st1), new ArrayList<>(st2));
+        answer.add(ns);
+        return answer;
     }
 }
