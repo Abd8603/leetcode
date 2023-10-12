@@ -40,7 +40,6 @@ class Solution {
         while(low <= high){
             i = (low + high)/2;
             save = arr.get(i);
-            System.out.println(i);
             if(save == target) return i;
             else if(save < target) low = i+1;
             else high = i-1;
@@ -55,7 +54,6 @@ class Solution {
         while(low <= high){
             i = (low + high)/2;
             save = arr.get(i);
-            System.out.println(i);
             if(save == target) return i;
             else if(save > target) low = i+1;
             else high = i-1;
