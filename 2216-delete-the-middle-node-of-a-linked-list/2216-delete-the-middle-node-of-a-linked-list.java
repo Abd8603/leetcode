@@ -9,27 +9,15 @@
  * }
  */
 class Solution {
-    int count = 0;
     public ListNode deleteMiddle(ListNode head) {
-        int n = traverse(head, 0);
-        if( n == 1){
-            head = head.next;
-            return head;
+        if(head.next == null) return null;
+        ListNode doubl = head, singl = head, prev = null;
+        while(doubl != null && doubl.next != null){
+            doubl = doubl.next.next;
+            prev = singl;
+            singl = singl.next;
         }
-        solve(head, n/2);
+        prev.next = prev.next.next;
         return head;
-    }
-    public int traverse(ListNode head, int n){
-        if(head.next == null) return 1;
-        return traverse(head.next, n) + 1;
-    }
-    public void solve(ListNode head, int n){
-        if(count == n - 1){
-            ListNode temp = head.next;
-            head.next = temp.next;
-            return ;
-        }
-        count ++;
-        solve(head.next, n);
     }
 }
